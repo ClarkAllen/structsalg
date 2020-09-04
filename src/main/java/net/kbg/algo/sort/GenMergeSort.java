@@ -25,15 +25,15 @@ public class GenMergeSort <T extends Comparable<T>> {
         int n1 = mid - low + 1;
         int n2 = hi - mid;
 
-        List<T> sub1 = new ArrayList<>();
-        List<T> sub2 = new ArrayList<>();
+        List<T> left = new ArrayList<>();
+        List<T> right = new ArrayList<>();
 
         for (int i = 0; i < n1; ++i) {
-            sub1.add(list.get(low + i));
+            left.add(list.get(low + i));
         }
 
         for (int j = 0; j < n2; ++j) {
-            sub2.add(list.get(mid + 1 + j));
+            right.add(list.get(mid + 1 + j));
         }
         
         int i = 0;
@@ -42,12 +42,12 @@ public class GenMergeSort <T extends Comparable<T>> {
         int k = low;
 
         while (i < n1 && j < n2) {
-            if (sub1.get(i).compareTo(sub2.get(j)) <= 0) {
-                list.set(k, sub1.get(i));
+            if (left.get(i).compareTo(right.get(j)) <= 0) {
+                list.set(k, left.get(i));
                 ++i;
             }
             else {
-                list.set(k, sub2.get(j));
+                list.set(k, right.get(j));
                 ++j;
             }
             ++k;
@@ -55,14 +55,14 @@ public class GenMergeSort <T extends Comparable<T>> {
 
         // copy the remaining elements of sub1, if any.
         while (i < n1) {
-            list.set(k, sub1.get(i));
+            list.set(k, left.get(i));
             ++i;
             ++k;
         }
 
         // copy the remaining elements of sub2, if any.
         while (j < n2) {
-            list.set(k, sub2.get(j));
+            list.set(k, right.get(j));
             ++j;
             ++k;
         }
