@@ -21,7 +21,7 @@ public class QuickSort {
     public void sort(int[] arry, int idxLo, int idxHi) {
         if (idxLo < idxHi) {
             int pi = partition(arry, idxLo, idxHi);
-            System.out.println("pivot index is " + pi);
+            //System.out.println("pivot index is " + pi);
             sort(arry, idxLo, pi - 1);
             sort(arry, pi + 1, idxHi);
         }
@@ -56,6 +56,6 @@ public class QuickSort {
         int temp = arry[idx1];
         arry[idx1] = arry[idx2];
         arry[idx2] = temp;
-        print(arry);
+        //print(arry);
     }
 }
