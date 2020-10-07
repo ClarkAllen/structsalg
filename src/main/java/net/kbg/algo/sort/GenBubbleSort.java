@@ -1,10 +1,11 @@
 package net.kbg.algo.sort;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GenBubbleSort<T extends Comparable<T>> {
 
-    public void sort(List<T> items) {
+    public void sort(ArrayList<T> items) {
         if (items == null) {
             throw new IllegalArgumentException();
         }

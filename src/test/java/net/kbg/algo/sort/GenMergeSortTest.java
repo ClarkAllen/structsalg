@@ -14,8 +14,8 @@ public class GenMergeSortTest {
     @Test
     public void testSortString() {
         GenMergeSort<String> mergeSort = new GenMergeSort<>();
-        List<String> list = Arrays.asList(
-                new String[] {"m", "k", "a", "x", "s"});
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(
+                new String[] {"m", "k", "a", "x", "s"}));
         int len = list.size();
         System.out.println(list);
         mergeSort.sort(list);
@@ -29,7 +29,7 @@ public class GenMergeSortTest {
     @Test
     public void testSortIntegers() {
         GenMergeSort<Integer> mergeSort = new GenMergeSort<>();
-        List<Integer> list = makeIntegerList();
+        ArrayList<Integer> list = makeIntegerList();
         int len = list.size();
         System.out.println(list);
         mergeSort.sort(list);
@@ -40,8 +40,8 @@ public class GenMergeSortTest {
         }
     }
 
-    private List<Integer> makeIntegerList() {
-        List<Integer> list = new ArrayList<>();
+    private ArrayList<Integer> makeIntegerList() {
+        ArrayList<Integer> list = new ArrayList<>();
         list.add(19);
         list.add(6);
         list.add(11);

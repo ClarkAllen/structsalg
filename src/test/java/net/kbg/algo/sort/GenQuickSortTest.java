@@ -3,7 +3,6 @@ package net.kbg.algo.sort;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class GenQuickSortTest {
@@ -19,7 +18,7 @@ public class GenQuickSortTest {
     */
     @Test
     public void testHappyPathSortIntegers() {
-        List<Integer> arry = makeIntList();
+        ArrayList<Integer> arry = makeIntList();
         GenQuickSort qs = new GenQuickSort();
         qs.sort(arry, 0, arry.size() - 1);
         System.out.println(arry);
@@ -27,14 +26,14 @@ public class GenQuickSortTest {
 
     @Test
     public void testHappyPathSortStrings() {
-        List<String> arry = makeStringList();
+        ArrayList<String> arry = makeStringList();
         GenQuickSort qs = new GenQuickSort();
         qs.sort(arry, 0, arry.size() - 1);
         System.out.println(arry);
     }
 
-    private List<Integer> makeIntList() {
-        List<Integer> arry = new ArrayList<>();
+    private ArrayList<Integer> makeIntList() {
+        ArrayList<Integer> arry = new ArrayList<>();
         arry.add(10);
         arry.add(7);
         arry.add(8);
@@ -44,8 +43,8 @@ public class GenQuickSortTest {
         return arry;
     }
 
-    private List<String> makeStringList() {
-        List<String> arry = new ArrayList<>();
+    private ArrayList<String> makeStringList() {
+        ArrayList<String> arry = new ArrayList<>();
         arry.add("ten");
         arry.add("seven");
         arry.add("eight");

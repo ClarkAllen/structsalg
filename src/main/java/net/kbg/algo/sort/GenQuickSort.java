@@ -1,5 +1,6 @@
 package net.kbg.algo.sort;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GenQuickSort<T extends Comparable<T>> {
@@ -10,10 +11,10 @@ public class GenQuickSort<T extends Comparable<T>> {
         low --> Starting index,
         high --> Ending index
     */
-    public void sort(List<T> arry, int idxLo, int idxHi) {
+    public void sort(ArrayList<T> arry, int idxLo, int idxHi) {
         if (idxLo < idxHi) {
             int pi = partition(arry, idxLo, idxHi);
-            System.out.println("pivot index is " + pi);
+            //System.out.println("pivot index is " + pi);
             sort(arry, idxLo, pi - 1);
             sort(arry, pi + 1, idxHi);
         }

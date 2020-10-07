@@ -5,7 +5,7 @@ import java.util.List;
 
 public class GenMergeSort <T extends Comparable<T>> {
 
-    public void sort(List<T> list) {
+    public void sort(ArrayList<T> list) {
         if (list == null) {
             throw new IllegalArgumentException();
         }

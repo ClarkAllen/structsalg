@@ -2,8 +2,8 @@ package net.kbg.algo.sort;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -13,8 +13,8 @@ public class GenBubbleSortTest {
     @Test
     public void testSortingStrings() {
         GenBubbleSort<String> bubSort = new GenBubbleSort<>();
-        List<String> list = Arrays.asList(
-                new String[] {"m", "k", "a", "x", "s"});
+        ArrayList<String> list = new ArrayList(Arrays.asList(
+                new String[] {"m", "k", "a", "x", "s"}));
         int len = list.size();
         System.out.println(list);
         bubSort.sort(list);
