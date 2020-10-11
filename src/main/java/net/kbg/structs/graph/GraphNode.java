@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-// see : https://www.baeldung.com/java-breadth-first-search
 public class GraphNode<T> {
     private T value;
     private List<GraphNode<T>> neighbors;
