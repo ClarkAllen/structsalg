@@ -13,10 +13,14 @@ public class BreadthFirstSearchTest {
     public void testBFSHappyPathSearch() {
         GraphNode<Integer> n = makeTestGraph6V();
         BreadthFirstSearch<Integer> bfs = new BreadthFirstSearch<>();
-        Optional<GraphNode<Integer>> rslt = bfs.search(n,6);
-        assertTrue(rslt.isPresent());
-        int value = rslt.get().getValue();
-        assertEquals(6, value);
+
+        for (int k = 2; k < 7; ++k) {
+            Optional<GraphNode<Integer>> rslt = bfs.search(n,k);
+            assertTrue(rslt.isPresent());
+            int value = rslt.get().getValue();
+            assertEquals(k, value);
+            System.out.println();
+        }
     }
 
     @Test
