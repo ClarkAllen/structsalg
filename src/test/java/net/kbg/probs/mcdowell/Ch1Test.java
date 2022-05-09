@@ -38,6 +38,18 @@ public class Ch1Test {
     }
 
     @Test
+    public void isPermutation2Test() {
+        String s1 = "madamimadam";
+        String s2 = "madamimadam";  // same as 1
+        String s3 = "madamimadaa";  // slightly different, same length
+        String s4 = "blivit";  // different length.
+
+        assertTrue(ch1.isPermutation2(s1, s2));
+        assertFalse(ch1.isPermutation2(s1, s3));
+        assertFalse(ch1.isPermutation2(s1, s4));
+    }
+
+    @Test
     public void testURLify() {
         String before = "http://something/dirty string for mommy";
         String expected = "http://something/dirty%20string%20for%20mommy";

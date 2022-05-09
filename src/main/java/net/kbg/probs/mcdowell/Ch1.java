@@ -69,6 +69,23 @@ public class Ch1 {
     }
 
     /*
+        Another solution to the question of two string being permutations of each other.
+        This one seems smarter.
+        * Make each string an array of characters
+        * Sort the arrays
+        * Compare the sorted character arrays for equality.
+     */
+    public boolean isPermutation2(String arg1, String arg2) {
+        char[] ca1 = arg1.toCharArray();
+        Arrays.sort(ca1);
+        char[] ca2 = arg2.toCharArray();
+        Arrays.sort(ca2);
+        String str1 = new String(ca1);
+        String str2 = new String(ca2);
+        return str1.equals(str2);
+    }
+
+    /*
         Replace all the space characters in a string with '%20'.
      */
     public String URLify(String url) {
