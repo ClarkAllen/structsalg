@@ -1,5 +1,6 @@
 package net.kbg.probs.mcdowell;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -121,4 +122,57 @@ public class Ch1Test {
         assertEquals(expected, actual);
 
     }
+
+    @Test
+    public void testRotateMatrix() {
+        int[][] mtx = {{1, 2}, {3, 4}};
+        int[][] rslt = ch1.rotateMatrixByDupe(mtx);
+        showMatrix(rslt);
+        spacer(3);
+
+        int[][] mtx3 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int [][] rslt3 = ch1.rotateMatrixByDupe(mtx3);
+        showMatrix(rslt3);
+    }
+
+    public void showMatrix(int[][] mtx) {
+        for (int x = 0; x < mtx.length; ++x) {
+            for (int y = 0; y < mtx[x].length; ++y) {
+                System.out.print(mtx[x][y] + "   ");
+            }
+            System.out.println();
+        }
+    }
+
+    @Test
+    public void testZeroMatrix() {
+        int[][] mtx1 = {
+                {11, 12, 13, 14, 15},
+                {21, 0, 23, 24, 25},
+                {31, 32, 33, 34, 35},
+                {41, 42, 43, 0, 45},
+                {51, 52, 53, 54, 55}
+        };
+        int[][] rslt1 = ch1.zeroMatrix(mtx1);
+        showMatrix(rslt1);
+    }
+
+    @Test
+    public void testStringRotation() {
+        String arg1 = "waterbottle";
+        String arg2 = "erbottlewat";
+        boolean rslt = ch1.isStringRotation(arg1, arg2);
+        Assert.assertTrue(rslt);
+
+        String arg3 = "waterbuffalo";
+        rslt = ch1.isStringRotation(arg3, arg2);
+        Assert.assertFalse(rslt);
+    }
+
+    public void spacer(int rows) {
+        for (int n = 0; n < rows; ++n) {
+            System.out.println();
+        }
+    }
+
 }

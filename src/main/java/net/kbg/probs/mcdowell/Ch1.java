@@ -243,4 +243,88 @@ public class Ch1 {
         return sb.toString();
     }
 
+    /*
+        Rotate an NxN matrix 90 degrees.
+            1  2                 1  3
+            3  4                 2  4
+
+            1  2  3              1  4  7
+            4  5  6              2  5  8
+            7  8  9              3  6  9
+
+        This solution does not do swapping in-place.
+        In-place swapping hurts my brain right now.
+     */
+    public int[][] rotateMatrixByDupe(int[][] mtx) {
+        int rowsize = mtx.length;
+        int colsize = mtx[0].length;
+        System.out.println("the argument is a " + rowsize + "x" + colsize + " matrix");
+        int[][] trans = new int[rowsize][colsize];
+
+        for (int x = 0; x < rowsize; ++x) {
+            for (int y = 0; y < colsize; ++y) {
+                trans[y][x] = mtx[x][y];
+            }
+        }
+        return trans;  // for now
+    }
+
+    /*
+        Zero Matrix
+        Write an algorithm such that if an element in an MxN matrix is zero,
+        then the entire row and the entire column of that element is set to zero.
+     */
+    public int[][] zeroMatrix(int[][] mtx) {
+        int rowsize = mtx.length;
+        int colsize = mtx[0].length;
+        System.out.println("the argument is a " + rowsize + "x" + colsize + " matrix");
+        Set<Integer> rowsSetToZero = new HashSet<>();
+        Set<Integer> colsSetToZero = new HashSet<>();
+
+        // Find rows and columns with zeros in them.
+        for (int x = 0; x < rowsize; ++x) {
+            for (int y = 0; y < colsize; ++y) {
+                if (mtx[x][y] == 0) {
+                    if ( ! rowsSetToZero.contains(x)) {
+                        rowsSetToZero.add(x);
+                    }
+                    if ( ! colsSetToZero.contains(y)) {
+                        colsSetToZero.add(y);
+                    }
+                }
+            }
+        }
+
+        // Set rows to zero where needed.
+        for (int row : rowsSetToZero) {
+            for (int y = 0; y < colsize; ++y) {
+                mtx[row][y] = 0;
+            }
+        }
+
+        // Set columns to zero where needed.
+        for (int col : colsSetToZero) {
+            for (int x = 0; x < colsize; ++x) {
+                mtx[x][col] = 0;
+            }
+        }
+
+        return mtx;
+    }
+
+    /*
+        String Rotation
+        Assume you have a method called isSubstring(s1, s2) that checks if one string
+        is a substring of another.
+        Using only one call to isSubstring(), determine if one string is a rotation
+        of the other.
+        Example : waterbottle can be rotated as  erbottlewat
+
+        My strategy... double string2 and check with isSubstring() :
+            isSubstring("waterbottle", "erbottlewaterbottlewat")
+     */
+    public boolean isStringRotation(String arg1, String arg2) {
+        String doubled = arg2 + arg2;
+        return doubled.contains(arg1);
+    }
 }
