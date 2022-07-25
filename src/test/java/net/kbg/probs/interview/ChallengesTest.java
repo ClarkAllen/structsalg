@@ -3,8 +3,7 @@ package net.kbg.probs.interview;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ChallengesTest {
 
@@ -38,5 +37,22 @@ public class ChallengesTest {
             String rslt = challenges.telegramProblem(w, line);
             assertTrue(rslt.length() <= w);
         }
+    }
+
+    @Test
+    public void rewriteLoopAsLambdaTest() {
+        challenges.rewriteLoopAsLambda();
+    }
+
+    @Test
+    public void doubledWordsTest() {
+        String notDoubled = "Why not work for NSA?";
+        String doubled = "Rex saw the can of mace that that Mailman Bob had had dropped.";
+
+        boolean rslt = challenges.detectDoubleWords(notDoubled);
+        assertFalse(rslt);
+
+        rslt = challenges.detectDoubleWords(doubled);
+        assertTrue(rslt);
     }
 }

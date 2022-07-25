@@ -1,9 +1,8 @@
 package net.kbg.probs.interview;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Challenges {
@@ -63,6 +62,42 @@ public class Challenges {
             --end;
         }
         return arg;
+    }
+
+    /*
+        The challenge is to rewrite a loop as a lambda.
+     */
+    public void rewriteLoopAsLambda() {
+        List<String> names = Arrays.asList("Bob", "Fred", "Barney", "Philboyd", "Poindexter");
+
+        System.out.println("\nLoop output : ");
+
+        for (String s : names) {
+            System.out.println(s);
+        }
+
+        System.out.println("\nList.forEach output");
+
+        names.forEach(System.out::println);
+
+        System.out.println("\nList.stream().forEach output");
+
+        names.stream().forEach(n -> System.out.println(n));
+    }
+
+    public boolean detectDoubleWords(String arg) {
+        Set<String> words = new HashSet<>();
+        boolean doubledWords = false;
+        words.addAll(Arrays.asList(arg.split("\\s+")));
+        for (String word : words) {
+            Matcher m = Pattern.compile(word + "\\s+" + word).matcher(arg);
+            boolean rslt = m.find();
+            if (rslt) {
+                doubledWords = true;
+                System.out.println("doubled word : " + word);
+            }
+        }
+        return doubledWords;
     }
 
 }
